@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Courses{% endblock title %}
+
+{% block content %}
+{% for shorttermcourse in shorttermcourse_list %}
+
+<div class="card mb-3" style="max-width: 1400px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{shorttermcourse.image.url}}"  class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> <a href="{% url "shorttermcourse_detail" shorttermcourse.pk %}"> {{ shorttermcourse.title }} </a> </h5>
+        <p class="card-text">{{ shorttermcourse.description }}</p>
+        <p class="card-text"><small class="text-muted">{{ shorttermcourse.subtitle }}</small></p>
+        <p class="card-text"><small class="text-muted">RS: {{ shorttermcourse.amount }}</small></p>
+        <div class="card-footer bg-transparent border-success">
+          <div class="card-footer text-center text-muted">
+          <a href="{% url "shorttermcourse_delete" shorttermcourse.pk %}">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% comment %} <div class="card">
+  <div class="card-header">
+    <span class="fw-bold">
+      
+    </span> &middot;
+    <span class="text-muted"> </span>
+  </div>
+  <div class="card-body">
+    
+  </div> {% endcomment %}
+
+</div>
+<br />
+{% endfor %}
+{% endblock content %}
+
+

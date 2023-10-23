@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+  <div class="article-entry">
+  <div class="card-body">
+    <h2 class="card-title">{{ object.title }}</h2>
+    <p class="card-text"><p>{{ shorttermcourse.subtitle }}</p>
+    <p class="card-text"><p>RS:{{ shorttermcourse.amount }}</p>
+    <p class="card-text"><small class="text-muted">{{ shorttermcourse.description }}</small></p>
+  </div>
+  <img src="{{shorttermcourse.image.url}}" class="card-img-bottom" alt="...">
+</div>
+</div>
+<div class="card-footer text-center text-muted">
+          <a href="{% url "shorttermcourse_delete" shorttermcourse.pk %}">Delete</a> |
+          <p>Back to <a href="{% url 'shorttermcourse_list' %}">All Courses</a>.</p>
+          </div>
+<div>
+ 
+{% endblock content %}
